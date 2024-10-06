@@ -1,3 +1,4 @@
+//go:generate parquetgen -input parquet/types.go -type ParquetLine -package parquet -output parquet/parquet.go
 package main
 
 import (

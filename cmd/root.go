@@ -19,6 +19,11 @@ func NewCmd() *Cmd {
 	rootCmd.AddCommand(
 		NewGenerateCommand(),
 		NewReadCommand(),
+		NewRead2Command(),
+		NewConvertCommand(),
+		NewTestCommand(),
+		NewConvert2Command(),
+		NewConvert3Command(),
 	)
 	return &Cmd{
 		rootCmd: rootCmd,
