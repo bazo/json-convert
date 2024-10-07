@@ -27,7 +27,7 @@ func NewConvert2Command() *cobra.Command {
 
 			outfile := filename + ".parquet"
 
-			f, err := os.Open(infile)
+			f, err := os.Open(utils.DockerPath(infile))
 			if err != nil {
 				log.Fatalln("Cannot open file", infile)
 			}
@@ -42,7 +42,7 @@ func NewConvert2Command() *cobra.Command {
 			}
 
 			// Create a new Parquet writer
-			fw, err := local.NewLocalFileWriter(outfile)
+			fw, err := local.NewLocalFileWriter(utils.DockerPath(outfile))
 			if err != nil {
 				log.Println("Can't create local file", err)
 				return

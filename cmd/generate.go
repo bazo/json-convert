@@ -3,6 +3,7 @@ package cmd
 import (
 	"encoding/json"
 	"json-convert/generator"
+	"json-convert/utils"
 	"log"
 	"os"
 
@@ -20,7 +21,7 @@ func NewGenerateCommand() *cobra.Command {
 		Run: func(cmd *cobra.Command, args []string) {
 			filename := args[0]
 
-			f, err := os.Create(filename + ".jsonl")
+			f, err := os.Create(utils.DockerPath(filename + ".jsonl"))
 			if err != nil {
 				log.Fatalln("Cannot create output file")
 			}

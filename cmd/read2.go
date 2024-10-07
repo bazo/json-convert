@@ -2,6 +2,7 @@ package cmd
 
 import (
 	"json-convert/types"
+	"json-convert/utils"
 	"log"
 
 	"github.com/davecgh/go-spew/spew"
@@ -19,7 +20,7 @@ func NewRead2Command() *cobra.Command {
 
 			file := filename + ".parquet"
 
-			fr, err := local.NewLocalFileReader(file)
+			fr, err := local.NewLocalFileReader(utils.DockerPath(file))
 
 			if err != nil {
 				log.Println("Can't open file", err)

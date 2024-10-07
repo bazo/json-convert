@@ -24,3 +24,7 @@ func GetMemUsage() string {
 func TimeToMillis(t time.Time) int64 {
 	return t.UnixNano() / int64(time.Millisecond)
 }
+
+func DockerPath(file string) string {
+	return "files/" + file
+}

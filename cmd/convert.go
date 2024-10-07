@@ -25,7 +25,7 @@ func NewConvertCommand() *cobra.Command {
 
 			outfile := filename + ".parquet"
 
-			f, err := os.Open(infile)
+			f, err := os.Open(utils.DockerPath(infile))
 			if err != nil {
 				log.Fatalln("Cannot open file", infile)
 			}
@@ -39,7 +39,7 @@ func NewConvertCommand() *cobra.Command {
 				log.Fatalln("Cannot stat file", infile)
 			}
 
-			fw, err := os.Create(outfile)
+			fw, err := os.Create(utils.DockerPath(outfile))
 			if err != nil {
 				log.Println("Can't create local file", err)
 				return

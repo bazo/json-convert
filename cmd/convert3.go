@@ -25,9 +25,9 @@ func NewConvert3Command() *cobra.Command {
 
 			outfile := filename + ".parquet"
 
-			f, err := os.Open(infile)
+			f, err := os.Open(utils.DockerPath(infile))
 			if err != nil {
-				log.Fatalln("Cannot open file", infile)
+				log.Fatalln("Cannot open file", utils.DockerPath(infile))
 			}
 			defer f.Close()
 

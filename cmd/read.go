@@ -2,6 +2,7 @@ package cmd
 
 import (
 	"json-convert/types2"
+	"json-convert/utils"
 	"log"
 
 	"github.com/davecgh/go-spew/spew"
@@ -18,7 +19,7 @@ func NewReadCommand() *cobra.Command {
 
 			file := filename + ".parquet"
 
-			rows, err := parquet.ReadFile[types2.ParquetLine](file)
+			rows, err := parquet.ReadFile[types2.ParquetLine](utils.DockerPath(file))
 			if err != nil {
 				log.Fatalln(err)
 			}
